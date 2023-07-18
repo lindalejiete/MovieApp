@@ -1,0 +1,24 @@
+.MovieComponentBoxSearchResults {
+  width: 70vw;
+  background-color: #2b3035;
+  border-radius: 0.9rem;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.btn-toggle {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  height: 2.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  background-color: #212529;
+  color: #dee2e6;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;
+}
