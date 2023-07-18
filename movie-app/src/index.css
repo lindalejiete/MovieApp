@@ -43,13 +43,13 @@ body {
   padding: 2.4rem;
 }
 
-.MovieComponentMain {
+/* .MovieComponentMain {
   margin-top: 2.4rem;
   height: calc(100vh - 7.2rem - 3 * 2.4rem);
   display: flex;
   gap: 2.4rem;
   justify-content: space-between;
-}
+} */
 /* ******* */
 
 .nav-bar {
@@ -62,13 +62,13 @@ body {
   border-radius: 0.9rem;
 }
 
-.main {
+/* .main {
   margin-top: 2.4rem;
   height: calc(100vh - 7.2rem - 3 * 2.4rem);
   display: flex;
   gap: 2.4rem;
   justify-content: center;
-}
+} */
 
 .box {
   width: 42rem;

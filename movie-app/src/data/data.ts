@@ -1,7 +1,7 @@
 import {watchedMoviesList} from "../types/types";
 import {searchedMoviesList} from "../types/types";
 
-export const tempMovieData: searchedMoviesList = [
+export const tempMovieData: searchedMoviesList[] = [
   {
     imdbID: "tt1375666",
     Title: "Inception",
@@ -25,7 +25,7 @@ export const tempMovieData: searchedMoviesList = [
   },
 ];
 
-export const tempWatchedData: watchedMoviesList = [
+export const tempWatchedData: watchedMoviesList[] = [
   {
     imdbID: "tt1375666",
     Title: "Inception",

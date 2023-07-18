@@ -5,6 +5,7 @@ import MovieComponent from "./components/moviesList/MoviesList";
 import WatchedMoviesBox from "./components/watchedMoviesBox/WatchedMoviesBox";
 import SearchBox from "./components/moviesListBox/MoviesListBox";
 import MoviesListBox from "./components/moviesListBox/MoviesListBox";
+import Main from "./components/main/Main";
 
 const tempMovieData = [
   {
@@ -95,11 +96,7 @@ function App() {
           Found <strong>{movies.length}</strong> results
         </p>
       </nav>
-      <main className="MovieComponentMain">
-        <MoviesListBox />
-        <WatchedMoviesBox />
-      </main>
-      {/* <MovieComponent /> */}
+      <Main />
     </>
   );
 }
