@@ -8,7 +8,9 @@ const MovieDetails = () => {
             <button>play</button>
             <h2>+</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nam ad laboriosam, quisquam voluptatibus ex incidunt aspernatur dolorum at in? Eum error alias voluptatibus odio obcaecati ab quasi fugit provident.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nam ad laboriosam, quisquam voluptatibus ex incidunt aspernatur dolorum at in? Eum error alias voluptatibus odio obcaecati ab quasi fugit provident.
+                changed
+            </p>
             </div>
         </div>
     )
