@@ -1,10 +1,6 @@
 import React from "react";
+import "./WatchedSummary.css";
 import {useState} from "react";
-import "./App.css";
-import MovieComponent from "./components/moviesList/MoviesList";
-import WatchedMoviesBox from "./components/watchedMoviesBox/WatchedMoviesBox";
-import SearchBox from "./components/moviesListBox/MoviesListBox";
-import MoviesListBox from "./components/moviesListBox/MoviesListBox";
 
 const tempMovieData = [
   {
@@ -61,11 +57,7 @@ const tempWatchedData: {
   },
 ];
 
-const average = (arr: []) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
-
-function App() {
-  const [query, setQuery] = useState("");
+const WatchedSummary = () => {
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
   const [isOpen1, setIsOpen1] = useState(true);
@@ -78,30 +70,28 @@ function App() {
   const avgRuntime = tempWatchedData.map((movie) => movie.runtime);
 
   return (
-    <>
-      <nav className="nav-bar">
-        <div className="logo">
-          {/* <span role="img">🍿</span> */}
-          <h1>name</h1>
-        </div>
-        <input
-          className="search"
-          type="text"
-          placeholder="Search movies..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <p className="num-results">
-          Found <strong>{movies.length}</strong> results
+    <div className="summary">
+      <h2>Movies you watched</h2>
+      <div>
+        <p>
+          <span>#️⃣</span>
+          <span>{watched.length} movies</span>
         </p>
-      </nav>
-      <main className="MovieComponentMain">
-        <MoviesListBox />
-        <WatchedMoviesBox />
-      </main>
-      {/* <MovieComponent /> */}
-    </>
+        <p>
+          <span>⭐️</span>
+          <span>{avgImdbRating}</span>
+        </p>
+        <p>
+          <span>🌟</span>
+          <span>{avgUserRating}</span>
+        </p>
+        <p>
+          <span>⏳</span>
+          <span>{avgRuntime} min</span>
+        </p>
+      </div>
+    </div>
   );
-}
+};
 
-export default App;
+export default WatchedSummary;

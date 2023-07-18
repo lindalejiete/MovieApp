@@ -1,4 +1,7 @@
-const tempMovieData = [
+import {watchedMoviesList} from "../types/types";
+import {searchedMoviesList} from "../types/types";
+
+export const tempMovieData: searchedMoviesList = [
   {
     imdbID: "tt1375666",
     Title: "Inception",
@@ -22,7 +25,7 @@ const tempMovieData = [
   },
 ];
 
-const tempWatchedData = [
+export const tempWatchedData: watchedMoviesList = [
   {
     imdbID: "tt1375666",
     Title: "Inception",
