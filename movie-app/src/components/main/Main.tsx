@@ -3,13 +3,8 @@ import MoviesListBox from "../moviesListBox/MoviesListBox";
 import WatchedMoviesBox from "../watchedMoviesBox/WatchedMoviesBox";
 import "./Main.css";
 
-const Main = () => {
-  return (
-    <main className="MovieComponentMain">
-      <MoviesListBox />
-      <WatchedMoviesBox />
-    </main>
-  );
+const Main = ({children}: any) => {
+  return <main className="Main">{children}</main>;
 };
 
 export default Main;

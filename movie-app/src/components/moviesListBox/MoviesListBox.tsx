@@ -4,7 +4,7 @@ import "./MoviesListBox.css";
 import MoviesList from "../moviesList/MoviesList";
 import {tempMovieData, tempWatchedData} from "../../data/data";
 
-const MoviesListBox = () => {
+const MoviesListBox = ({children}: any) => {
   const [isOpen1, setIsOpen1] = useState(true);
 
   return (
@@ -15,8 +15,7 @@ const MoviesListBox = () => {
       >
         {isOpen1 ? "–" : "+"}
       </button>
-
-      {isOpen1 && <MoviesList />}
+      {isOpen1 && children}
     </div>
   );
 };
