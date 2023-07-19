@@ -1,9 +1,13 @@
 import React from "react";
 import "./Movie.css";
 
-const Movie = ({movie}: any) => {
+const Movie = ({movie, onSelectMovie}: any) => {
   return (
-    <li className="MovieItem" key={movie.imdbID}>
+    <li
+      className="MovieItem"
+      key={movie.imdbID}
+      onClick={() => onSelectMovie(movie.imdbID)}
+    >
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
       <div>

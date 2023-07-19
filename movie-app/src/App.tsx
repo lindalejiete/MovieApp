@@ -9,6 +9,7 @@ import Main from "./components/main/Main";
 import MoviesList from "./components/moviesList/MoviesList";
 import Loader from "./components/loader/Loader";
 import ErrorMessage from "./components/errorMessage/ErrorMessage";
+import MovieDetails from "./components/movieDetails/MovieDetails";
 
 const tempMovieData = [
   {
@@ -72,8 +73,15 @@ function App() {
   const [movies, setMovies] = useState(tempMovieData);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const tempQuery = "mom";
+  const [selectedId, setSelectedId] = useState(null);
 
+  function handleSelectMovie(id: any) {
+    // if we click on the same movie, the movie details close
+    setSelectedId((selectedId) => (id === selectedId ? null : id));
+  }
+  function handleCloseMovie(id: any) {
+    setSelectedId(null);
+  }
   useEffect(
     function () {
       async function fetchMovies() {
@@ -84,17 +92,13 @@ function App() {
           const res = await fetch(
             `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
           );
-          const res2 = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&page=${2}`
-          );
-          console.log(res2);
 
           if (!res.ok)
             throw new Error("Something went wrong with fetching movies");
           const data = await res.json();
 
           if (data.Response === "False") throw new Error("Movie not found");
-
+          console.log(data.Search);
           setMovies(data.Search);
         } catch (err: any) {
           setError(err.message);
@@ -102,8 +106,8 @@ function App() {
           setIsLoading(false);
         }
       }
-      if (!query.length) {
-        setMovies([]);
+      if (query.length < 3) {
+        // setMovies([]);
         setError("");
         return;
       }
@@ -136,10 +140,20 @@ function App() {
         <MoviesListBox>
           {/* we directly pass movies from the app component to movieslist */}
           {isLoading && <Loader />}
-          {!isLoading && !error && <MoviesList movies={movies} />}
+          {!isLoading && !error && (
+            <MoviesList movies={movies} onSelectMovie={handleSelectMovie} />
+          )}
           {error && <ErrorMessage message={error} />}
         </MoviesListBox>
-        <WatchedMoviesBox />
+
+        {selectedId ? (
+          <MovieDetails
+            selectedId={selectedId}
+            onCloseMovie={handleCloseMovie}
+          />
+        ) : (
+          <WatchedMoviesBox />
+        )}
       </Main>
     </>
   );

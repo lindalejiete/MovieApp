@@ -1,10 +1,15 @@
-import React from 'react'
-import './MovieDetails.css'
+import React from "react";
+import "./MovieDetails.css";
 
-const MovieDetails = () => {
-    return (
-        <div>MovieDetails</div>
-    )
-}
+const MovieDetails = ({selectedId, onCloseMovie}: any) => {
+  return (
+    <div className="details">
+      <button className="btn-back" onClick={onCloseMovie}>
+        &larr;
+      </button>
+      {selectedId}
+    </div>
+  );
+};
 
-export default MovieDetails
+export default MovieDetails;
