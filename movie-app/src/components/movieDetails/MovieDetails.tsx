@@ -3,7 +3,9 @@ import './MovieDetails.css'
 
 const MovieDetails = () => {
     return (
-        <div>MovieDetails</div>
+        <div>
+
+        </div>
     )
 }
 

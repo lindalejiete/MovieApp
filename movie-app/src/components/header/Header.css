@@ -1,0 +1,62 @@
+.Header {
+  height: 80px;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+.HeaderWrapper {
+  width: 1280px;
+  display: flex;
+}
+.HeaderLeft,
+.HeaderRight {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.HeaderLeft ul,
+.HeaderRight ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  color: #ffffff;
+  font-family: Roboto Condensed;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin: 0;
+}
+.HeaderLeft li {
+  margin-right: 50px;
+}
+.HeaderRight li {
+  margin-left: 50px;
+}
+.HeaderRight {
+  display: flex;
+  justify-content: flex-end;
+}
+.HeaderLogo img {
+  height: 50px;
+  margin: 0;
+}
+
+input {
+  border: none;
+  color: #ffffff;
+  height: 30px;
+  border-radius: 5px;
+  border-bottom: 2px solid #da3832;
+  width: 300px;
+  background: transparent;
+  box-sizing: border-box;
+  background-image: url("https://icon-library.com/images/search-icon-images/search-icon-images-10.jpg");
+}
+input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #da3832;
+  background: rgba(218, 56, 50, 0.1);
+  border-radius: 5px;
+}
