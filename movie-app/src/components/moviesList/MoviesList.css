@@ -60,6 +60,7 @@
   cursor: pointer;
   transition: all 0.3s;
   width: 40rem;
+  height: 50rem;
   /* height: 40rem; */
   /* height: 40rem; */
 }
@@ -78,6 +79,7 @@
 
 .MoviesList li:hover {
   background-color: #343a40;
+  transform: scale(1.1);
 }
 
 .MoviesList img {

@@ -4,10 +4,12 @@
   background-color: #2b3035;
   border-radius: 0.9rem;
   position: relative;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow-x: hidden;
 }
-
+::-webkit-scrollbar {
+  width: 10px;
+}
 .MoviesListBoxBtnToggle {
   position: absolute;
   top: 0.8rem;
