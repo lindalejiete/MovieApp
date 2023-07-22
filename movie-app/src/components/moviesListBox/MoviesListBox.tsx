@@ -1,8 +1,6 @@
 import React from "react";
 import {useState} from "react";
 import "./MoviesListBox.css";
-import MoviesList from "../moviesList/MoviesList";
-import {tempMovieData, tempWatchedData} from "../../data/data";
 
 const MoviesListBox = ({children}: any) => {
   const [isOpen1, setIsOpen1] = useState(true);

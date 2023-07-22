@@ -1,7 +1,7 @@
 .MoviesListBoxContainer {
   position: relative;
-  width: 80vw;
-  background-color: #2b3035;
+  width: 70vw;
+  /* background-color: #2b3035; */
   border-radius: 0.9rem;
   position: relative;
   /* overflow-y: scroll; */
