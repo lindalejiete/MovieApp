@@ -1,10 +1,9 @@
-import React from "react";
 import "./Header.css";
-
+import {HeaderComponentTypes} from "../../types/types";
 // @ts-ignore
 import Logo from "../../assets/logo.png";
 
-const Header = ({onSearch, query, movies}: any) => {
+const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
   return (
     <div className="Header" id="">
       <div className="HeaderWrapper">
@@ -24,27 +23,15 @@ const Header = ({onSearch, query, movies}: any) => {
           </ul>
         </div>
         <div className="HeaderCenter">
-          {/* <ul>
-            <li> */}
           <input
             type="text"
             placeholder="Search.."
             value={query}
             onChange={(e) => onSearch(e.target.value)}
           ></input>
-          {/* </li>
-          </ul> */}
         </div>
         <div className="HeaderRight">
           <ul>
-            {/* <li>
-              <input
-                type="text"
-                placeholder="Search.."
-                value={query}
-                onChange={(e) => onSearch(e.target.value)}
-              ></input>
-            </li> */}
             <li className="num-results">
               Found <strong>{movies.length}</strong> results
             </li>

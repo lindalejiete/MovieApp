@@ -1,9 +1,7 @@
-import React from "react";
-import MoviesListBox from "../moviesListBox/MoviesListBox";
-import WatchedMoviesBox from "../watchedMoviesBox/WatchedMoviesBox";
 import "./Main.css";
+import {BoxProps} from "../../types/types";
 
-const Main = ({children}: any) => {
+const Main = ({children}: BoxProps) => {
   return <main className="Main">{children}</main>;
 };
 

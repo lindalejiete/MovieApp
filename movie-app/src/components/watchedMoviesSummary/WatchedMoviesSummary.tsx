@@ -1,6 +1,8 @@
-import React from "react";
 import "./WatchedMoviesSummary.css";
-import {watchedMoviesList} from "../../types/types";
+import {
+  WatchedMovieSummaryComponentTypes,
+  WatchedMoviesList,
+} from "../../types/types";
 
 const getAverage = (arr: number[]) => {
   return arr.reduce(
@@ -9,19 +11,15 @@ const getAverage = (arr: number[]) => {
     0
   );
 };
-// we passed watched array from parent component
-const WatchedMoviesSummary = ({watched}: any) => {
-  const avgImdbRating = getAverage(
-    watched.map((movie: watchedMoviesList) => movie.imdbRating)
-  );
 
-  const avgUserRating = getAverage(
-    watched.map((movie: watchedMoviesList) => movie.userRating)
-  );
+const WatchedMoviesSummary = ({watched}: WatchedMovieSummaryComponentTypes) => {
+  const avgImdbRating = getAverage(
+    watched.map((movie: WatchedMoviesList) => Number(movie.imdbRating))
+  ).toFixed(1);
 
   const avgRuntime = getAverage(
-    watched.map((movie: watchedMoviesList) => movie.runtime)
-  );
+    watched.map((movie: WatchedMoviesList) => movie.Runtime)
+  ).toFixed(0);
 
   return (
     <div className="WatchedMoviesSummary">
@@ -35,10 +33,7 @@ const WatchedMoviesSummary = ({watched}: any) => {
           <span>⭐️</span>
           <span>{avgImdbRating}</span>
         </p>
-        <p>
-          <span>🌟</span>
-          <span>{avgUserRating}</span>
-        </p>
+
         <p>
           <span>⏳</span>
           <span>{avgRuntime} min</span>

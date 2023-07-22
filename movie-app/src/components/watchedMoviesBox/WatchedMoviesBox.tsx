@@ -2,13 +2,13 @@ import {useState} from "react";
 import WatchedMoviesList from "../watchedMoviesList/WatchedMoviesList";
 import "./WatchedMoviesBox.css";
 import WatchedMoviesSummary from "../watchedMoviesSummary/WatchedMoviesSummary";
-import {tempWatchedData} from "../../data/data";
+import {WatchedMovieBoxComponentTypes} from "../../types/types";
 
-const WatchedMoviesBox = () => {
-  // const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState(tempWatchedData);
+const WatchedMoviesBox = ({
+  watched,
+  onDeleteWatched,
+}: WatchedMovieBoxComponentTypes) => {
   const [isOpen1, setIsOpen1] = useState(true);
-  // const [isOpen2, setIsOpen2] = useState(true);
 
   return (
     <div className="WatchedMoviesBox">
@@ -22,7 +22,10 @@ const WatchedMoviesBox = () => {
       {isOpen1 && (
         <>
           <WatchedMoviesSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
+          <WatchedMoviesList
+            watched={watched}
+            onDeleteWatched={onDeleteWatched}
+          />
         </>
       )}
     </div>

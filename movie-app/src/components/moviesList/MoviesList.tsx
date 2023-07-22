@@ -1,15 +1,12 @@
-import React from "react";
 import "./MoviesList.css";
-import {useState} from "react";
-import {tempMovieData, tempWatchedData} from "../../data/data";
 import Movie from "../movie/Movie";
+import {MovieListComponentTypes, SearchedMoviesList} from "../../types/types";
 
-const MoviesList = ({movies, onSelectMovie}: any) => {
-  // const [movies, setMovies] = useState(tempMovieData);
+const MoviesList = ({movies, onSelectMovie}: MovieListComponentTypes) => {
   return (
     <div>
       <ul className="MoviesList">
-        {movies?.map((movie: any) => (
+        {movies?.map((movie: SearchedMoviesList) => (
           <Movie
             movie={movie}
             key={movie.imdbID}

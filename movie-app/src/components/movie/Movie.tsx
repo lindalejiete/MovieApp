@@ -1,7 +1,8 @@
 import React from "react";
 import "./Movie.css";
+import {MovieComponentTypes} from "../../types/types";
 
-const Movie = ({movie, onSelectMovie}: any) => {
+const Movie = ({movie, onSelectMovie}: MovieComponentTypes) => {
   return (
     <li
       className="MovieItem"

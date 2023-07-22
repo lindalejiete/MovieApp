@@ -1,9 +1,5 @@
-import React from "react";
 import "./Layout.css";
-
-type BoxProps = {
-  children: React.ReactNode; // 👈️ type children
-};
+import {BoxProps} from "../../types/types";
 
 const Layout = (props: BoxProps) => {
   return (

@@ -1,8 +1,8 @@
-import React from "react";
 import {useState} from "react";
 import "./MoviesListBox.css";
+import {BoxProps} from "../../types/types";
 
-const MoviesListBox = ({children}: any) => {
+const MoviesListBox = ({children}: BoxProps) => {
   const [isOpen1, setIsOpen1] = useState(true);
 
   return (

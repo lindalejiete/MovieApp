@@ -1,6 +1,7 @@
-import React from "react";
+import "./WatchedMovie.css";
+import {WatchedMovieComponentTypes} from "../../types/types";
 
-const WatchedMovie = ({movie}: any) => {
+const WatchedMovie = ({movie, onDeleteWatched}: WatchedMovieComponentTypes) => {
   return (
     <li>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
@@ -11,13 +12,15 @@ const WatchedMovie = ({movie}: any) => {
           <span>{movie.imdbRating}</span>
         </p>
         <p>
-          <span>🌟</span>
-          <span>{movie.userRating}</span>
-        </p>
-        <p>
           <span>⏳</span>
-          <span>{movie.runtime} min</span>
+          <span>{movie.Runtime} min</span>
         </p>
+        <button
+          className="WatchedMovieBtnDelete"
+          onClick={() => onDeleteWatched(movie.imdbID)}
+        >
+          X
+        </button>
       </div>
     </li>
   );

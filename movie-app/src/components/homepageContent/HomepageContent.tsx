@@ -1,41 +1,38 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import "./HomepageContent.css";
-// import MovieComponent from "../moviesList/moviesList";
-
 import WatchedMoviesBox from "../watchedMoviesBox/WatchedMoviesBox";
-
 import MoviesListBox from "../moviesListBox/MoviesListBox";
 import Main from "../main/Main";
 import MoviesList from "../moviesList/MoviesList";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import MovieDetails from "../movieDetails/MovieDetails";
-
-import {tempMovieData, tempWatchedData} from "../../data/data";
+import {tempMovieData} from "../../data/data";
+import {WatchedMoviesList, HomePageTypes} from "../../types/types";
 import "./HomepageContent.css";
 
 const KEY = "9f8ff0fc";
 
-const HomepageContent = ({query, movies, onSearchMovie}: any) => {
-  // const [query, setQuery] = useState("");
-  // const [movies, setMovies] = useState(tempMovieData);
-  const [watched, setWatched] = useState([]);
+const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
+  const [watched, setWatched] = useState<WatchedMoviesList[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState<null | string>(null);
 
-  function handleSelectMovie(id: any) {
-    // if we click on the same movie, the movie details close
+  function handleSelectMovie(id: string | null) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
-  function handleCloseMovie(id: any) {
+  function handleCloseMovie() {
     setSelectedId(null);
   }
+  function handleAddWatched(movie: WatchedMoviesList[]) {
+    setWatched((watched) => [...watched, movie]);
+  }
+  function handleDeleteWatched(id: string | undefined) {
+    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
+  }
 
-  // function handleAddWatched() {
-  //   setWatched((watched: any[]) => [...watched, movie]);
-  // }
   useEffect(
     function () {
       async function fetchMovies() {
@@ -103,9 +100,14 @@ const HomepageContent = ({query, movies, onSearchMovie}: any) => {
           <MovieDetails
             selectedId={selectedId}
             onCloseMovie={handleCloseMovie}
+            onAddWatched={handleAddWatched}
+            watched={watched}
           />
         ) : (
-          <WatchedMoviesBox />
+          <WatchedMoviesBox
+            watched={watched}
+            onDeleteWatched={handleDeleteWatched}
+          />
         )}
       </Main>
     </>
