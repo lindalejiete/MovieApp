@@ -1,4 +1,4 @@
-import {SearchedMoviesList, WatchedMoviesList} from "../types/types";
+import {SearchedMoviesList} from "../types/types";
 
 export const tempMovieData: SearchedMoviesList[] = [
   {
@@ -92,4 +92,3 @@ export const tempMovieData: SearchedMoviesList[] = [
       "https://m.media-amazon.com/images/M/MV5BZGRhYjE2NWUtN2FkNy00NGI3LTkxYWMtMDk4Yjg5ZjI3MWI2XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SX300.jpg",
   },
 ];
-

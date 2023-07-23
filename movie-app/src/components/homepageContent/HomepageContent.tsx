@@ -15,10 +15,13 @@ import "./HomepageContent.css";
 const KEY = "9f8ff0fc";
 
 const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
-  const [watched, setWatched] = useState<WatchedMoviesList[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState<null | string>(null);
+  const [watched, setWatched] = useState(function () {
+    const storedValue: any = localStorage.getItem("watched");
+    return JSON.parse(storedValue);
+  });
 
   function handleSelectMovie(id: string | null) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
@@ -27,21 +30,32 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
     setSelectedId(null);
   }
   function handleAddWatched(movie: WatchedMoviesList[]) {
-    setWatched((watched) => [...watched, movie]);
+    setWatched((watched: WatchedMoviesList[]) => [...watched, movie]);
   }
   function handleDeleteWatched(id: string | undefined) {
-    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
+    setWatched((watched: WatchedMoviesList[]) =>
+      watched.filter((movie) => movie.imdbID !== id)
+    );
   }
 
   useEffect(
     function () {
+      localStorage.setItem("watched", JSON.stringify(watched));
+    },
+    [watched]
+  );
+
+  useEffect(
+    function () {
+      const controller = new AbortController();
       async function fetchMovies() {
         try {
           setIsLoading(true);
           setError("");
 
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            {signal: controller.signal}
           );
 
           if (!res.ok)
@@ -49,10 +63,13 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
           const data = await res.json();
 
           if (data.Response === "False") throw new Error("Movie not found");
-          console.log(data.Search);
+
           onSearchMovie(data.Search);
+          setError("");
         } catch (err: any) {
-          setError(err.message);
+          if (err.name !== "AbortError") {
+            setError(err.message);
+          }
         } finally {
           setIsLoading(false);
         }
@@ -64,29 +81,16 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
       }
 
       fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
 
   return (
     <>
-      {/* <nav className="nav-bar">
-        <div className="logo">
-          <span role="img">🎥🎬</span>
-          <h1>Movies App</h1>
-        </div>
-        <input
-          className="search"
-          type="text"
-          placeholder="Search movies..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <p className="num-results">
-          Found <strong>{movies.length}</strong> results
-        </p>
-      </nav> */}
-
       <Main>
         <MoviesListBox>
           {isLoading && <Loader />}

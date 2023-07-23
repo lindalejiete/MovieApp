@@ -47,7 +47,7 @@ const MovieDetails = ({
             throw new Error("Something went wrong with fetching movie");
           const data = await res.json();
           if (data.Response === "False") throw new Error("Movie not found");
-          console.log(data);
+
           setMovie(data);
         } catch (err: any) {
           setError(err.message);
@@ -73,17 +73,7 @@ const MovieDetails = ({
         <div className="movie-details-box">
           <div>
             <img src={movie.Poster} alt={`${movie.Title} poster`}></img>
-            {/* <h1></h1> */}
-            {/* <button>play</button> */}
-            <h2>{movie.Title}</h2>
-            <p>
-              {movie.Released} &bull; {movie.Runtime}{" "}
-            </p>
-            <p>{movie.Genre}</p>
-            <p>
-              <span>⭐</span>
-              {movie.imdbRating} IMDB StarRating
-            </p>
+
             {!isWatched ? (
               <>
                 <button className="MovieDetailsBtnAdd" onClick={handleAdd}>
@@ -95,11 +85,6 @@ const MovieDetails = ({
                 You have this movie on your list
               </p>
             )}
-            <p>
-              <em>{movie.Plot}</em>
-            </p>
-            <p>Starring {movie.Actors}</p>
-            <p>Directed by {movie.Director}</p>
           </div>
         </div>
       )}
