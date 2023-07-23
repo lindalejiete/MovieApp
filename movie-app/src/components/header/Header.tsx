@@ -7,17 +7,24 @@ const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
   return (
     <div className="Header" id="home">
       <div className="HeaderWrapper">
+        <div className="HeaderLogo">
+          <img src={Logo} alt="logo"></img>
+        </div>
         <div className="HeaderLeft">
           <ul>
             <li>
-              <div className="HeaderLogo">
-                <img src={Logo} alt="logo"></img>
-              </div>
+              <a
+                href="#home"
+                onClick={() => {
+                  window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+                }}
+              >
+                Home
+              </a>
             </li>
             <li>
-              <a href="#home">Home</a>
+              <a href="#movies">Movies</a>
             </li>
-            <li>Movies</li>
           </ul>
         </div>
         <div className="HeaderRight">
@@ -25,7 +32,7 @@ const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
             <li>
               <input
                 type="text"
-                placeholder="Search.."
+                placeholder="Search for movie..."
                 value={query}
                 onChange={(e) => onSearch(e.target.value)}
               ></input>
@@ -35,6 +42,11 @@ const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
             </li>
           </ul>
         </div>
+        <button className="HeaderBtnMobileNav">
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
       </div>
     </div>
   );

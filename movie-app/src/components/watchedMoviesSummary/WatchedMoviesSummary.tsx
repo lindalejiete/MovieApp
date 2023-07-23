@@ -12,7 +12,10 @@ const getAverage = (arr: number[]) => {
   );
 };
 
-const WatchedMoviesSummary = ({watched}: WatchedMovieSummaryComponentTypes) => {
+const WatchedMoviesSummary = ({
+  watched,
+  isMobile,
+}: WatchedMovieSummaryComponentTypes) => {
   const avgImdbRating = getAverage(
     watched.map((movie: WatchedMoviesList) => Number(movie.imdbRating))
   ).toFixed(1);

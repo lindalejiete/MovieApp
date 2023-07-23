@@ -1,5 +1,5 @@
 .Header {
-  height: 80px;
+  height: 8rem;
   width: 100vw;
   position: fixed;
   top: 0;
@@ -7,7 +7,7 @@
   justify-content: center;
 }
 .HeaderWrapper {
-  width: 1280px;
+  width: 128rem;
   display: flex;
 }
 
@@ -15,6 +15,7 @@
 .HeaderRight {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 50%;
 }
 
@@ -26,18 +27,18 @@
   color: #ffffff;
   font-family: Roboto Condensed;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin: 0;
 }
 .HeaderLeft li {
-  margin-right: 50px;
+  margin-right: 5rem;
 }
 
 .HeaderLeft a {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 1.4rem 1.6rem;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s;
@@ -48,34 +49,111 @@
 }
 
 .HeaderRight li {
-  margin-left: 50px;
+  margin-left: 5rem;
+}
+.HeaderRight li:nth-child(1) {
+  margin-left: 0;
 }
 .HeaderRight {
   display: flex;
-  justify-content: flex-end;
 }
 .HeaderLogo img {
-  height: 50px;
+  height: 5rem;
   margin: 0;
 }
 
 input {
   border: none;
   color: #ffffff;
-  height: 30px;
-  border-radius: 5px;
-  border-bottom: 2px solid #da3832;
-  width: 300px;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border-bottom: 0.2rem solid #da3832;
+  width: 30rem;
   background: transparent;
   box-sizing: border-box;
   background-image: url("https://icon-library.com/images/search-icon-images/search-icon-images-10.jpg");
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 input:focus {
   border: none;
   outline: none;
-  border-bottom: 2px solid #da3832;
+  border-bottom: 0.2rem solid #da3832;
   background: rgba(218, 56, 50, 0.1);
-  border-radius: 5px;
+  border-radius: 0.5rem;
+}
+
+::placeholder {
+  color: rgb(255, 255, 255, 0.7);
+}
+
+.HeaderBtnMobileNav {
+  display: none;
+  cursor: pointer;
+  background-color: #343a40;
+}
+.HeaderBtnMobileNav div {
+  width: 35px;
+  height: 5px;
+  background-color: #da3832;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+@media screen and (max-width: 1054px) {
+  .HeaderLeft ul,
+  .HeaderRight ul {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 880px) {
+  .HeaderLeft ul,
+  .HeaderRight ul {
+    font-size: 1.4rem;
+  }
+  .HeaderLeft li {
+    margin-right: 3rem;
+  }
+
+  input {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .Header {
+    height: 12rem;
+  }
+
+  .HeaderLeft {
+    display: none;
+  }
+  .HeaderLeft ul {
+    flex-direction: column;
+    margin-right: 0;
+  }
+  .HeaderRight ul li:nth-child(2) {
+    display: none;
+  }
+  .HeaderRight {
+    justify-content: center;
+  }
+
+  .HeaderBtnMobileNav {
+    display: inline-block;
+    z-index: 9999;
+  }
+  .HeaderWrapper {
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+  }
+  input {
+    width: 20rem;
+    background-color: #dee2e6;
+    border: none;
+  }
+  ::placeholder {
+    color: rgb(112, 115, 118);
+  }
 }

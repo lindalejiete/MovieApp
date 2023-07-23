@@ -1,13 +1,12 @@
 .MovieDetails {
   line-height: 1.4;
   font-size: 1.4rem;
-  width: 30vw;
+  width: 25vw;
   position: relative;
 }
 
 .movie-details-box {
   width: 100%;
-  /* height: 50vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,4 +67,16 @@
 }
 .MovieDetailsBtnAdd:hover {
   background-color: #343a40;
+}
+
+@media screen and (max-width: 1394px) {
+  .MovieDetails {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 1054px) {
+  .MovieDetails {
+    width: 50vw;
+  }
 }

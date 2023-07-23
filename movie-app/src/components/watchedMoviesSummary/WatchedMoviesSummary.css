@@ -24,3 +24,9 @@
   align-items: center;
   gap: 0.8rem;
 }
+
+@media screen and (max-width: 1394px) {
+  .WatchedMoviesSummary div {
+    font-size: 1.4rem;
+  }
+}

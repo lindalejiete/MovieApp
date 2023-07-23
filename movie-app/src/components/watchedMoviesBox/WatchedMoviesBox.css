@@ -1,12 +1,9 @@
 .WatchedMoviesBox {
   position: relative;
-  width: 30vw;
-  overflow: scroll;
-  /* padding: 2.4rem; */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+  width: 25vw;
+  overflow: auto;
 }
+
 .WatchedBoxBtnToggle {
   position: absolute;
   top: 0.8rem;
@@ -21,4 +18,32 @@
   font-weight: bold;
   cursor: pointer;
   z-index: 999;
+}
+.WatchedBoxBtnToggleMobile {
+  display: none;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  height: 2.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  background-color: #212529;
+  color: #dee2e6;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;
+}
+
+@media screen and (max-width: 1394px) {
+  .WatchedMoviesBox {
+    width: 30vw;
+  }
+}
+
+@media screen and (max-width: 1054px) {
+  .WatchedMoviesBox {
+    width: 50vw;
+  }
 }
