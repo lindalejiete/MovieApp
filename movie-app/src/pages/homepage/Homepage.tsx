@@ -1,17 +1,34 @@
 import React from 'react'
-import './Homepage.css'
-import Header from '../../components/header/Header'
-import HomepageContent from '../../components/homepageContent/HomepageContent'
-import Footer from '../../components/footer/Footer'
+import "./Homepage.css";
+import Header from "../../components/header/Header";
+import HomepageContent from "../../components/homepageContent/HomepageContent";
+import Footer from "../../components/footer/Footer";
+import {useState} from "react";
+import {tempMovieData} from "../../data/data";
+import {SearchedMoviesList} from "../../types/types";
 
 const Homepage = () => {
-    return (
-        <div>
-            <Header></Header>
-            <HomepageContent></HomepageContent>
-            <Footer></Footer>
-        </div>
-    )
-}
+  const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState(tempMovieData);
 
-export default Homepage
+  function handleSearch(item: string) {
+    setQuery(item);
+  }
+  function handleMovies(item: SearchedMoviesList[]) {
+    setMovies(item);
+  }
+
+  return (
+    <>
+      <Header onSearch={handleSearch} movies={movies} />
+      <HomepageContent
+        query={query}
+        onSearchMovie={handleMovies}
+        movies={movies}
+      />
+      <Footer />
+    </>
+  );
+};
+
+export default Homepage;

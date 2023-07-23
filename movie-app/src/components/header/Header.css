@@ -2,6 +2,7 @@
   height: 80px;
   width: 100vw;
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: center;
 }
@@ -9,6 +10,7 @@
   width: 1280px;
   display: flex;
 }
+
 .HeaderLeft,
 .HeaderRight {
   display: flex;
@@ -30,6 +32,21 @@
 .HeaderLeft li {
   margin-right: 50px;
 }
+
+.HeaderLeft a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.HeaderLeft a:hover {
+  background-color: #343a40;
+  transform: scale(1.1);
+}
+
 .HeaderRight li {
   margin-left: 50px;
 }
@@ -52,7 +69,9 @@ input {
   background: transparent;
   box-sizing: border-box;
   background-image: url("https://icon-library.com/images/search-icon-images/search-icon-images-10.jpg");
+  font-size: 1.5rem;
 }
+
 input:focus {
   border: none;
   outline: none;

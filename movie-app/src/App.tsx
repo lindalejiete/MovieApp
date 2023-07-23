@@ -5,10 +5,9 @@ import Layout from './pages/layout/Layout';
 
 function App() {
   return (
-    <>
-      <Layout></Layout>
-      <Homepage></Homepage>
-    </>
+    <Layout>
+      <Homepage />
+    </Layout>
   );
 }
 
