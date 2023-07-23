@@ -19,6 +19,9 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
   const [selectedId, setSelectedId] = useState<null | string>(null);
   const [watched, setWatched] = useState(function () {
     const storedValue: any = localStorage.getItem("watched");
+    if (!storedValue) {
+      return [];
+    }
     return JSON.parse(storedValue);
   });
 

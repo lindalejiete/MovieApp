@@ -1,6 +1,7 @@
 import React from 'react'
 import './Header.css'
 import {HeaderComponentTypes} from "../../types/types";
+// @ts-ignore
 import Logo from '../../assets/logo.png'
 
 const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
