@@ -10,7 +10,6 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import MovieDetails from "../movieDetails/MovieDetails";
 import {tempMovieData} from "../../data/data";
 import {WatchedMoviesList, HomePageTypes} from "../../types/types";
-import "./HomepageContent.css";
 
 const KEY = "9f8ff0fc";
 
@@ -20,6 +19,9 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
   const [selectedId, setSelectedId] = useState<null | string>(null);
   const [watched, setWatched] = useState(function () {
     const storedValue: any = localStorage.getItem("watched");
+    if (!storedValue) {
+      return [];
+    }
     return JSON.parse(storedValue);
   });
 
