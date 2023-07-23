@@ -1,29 +1,29 @@
 import "./MovieDetails.css";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 
-const KEY = "eade25bf";
+// const KEY = "eade25bf";
 
-const MovieDetails = ({ selectedId }: MovieDetailsTypes) => {
-  const [movies, setMovies] = useState<MouseEventInit>({});
+// const MovieDetails = ({ selectedId }: MovieDetailsTypes) => {
+//   const [movies, setMovies] = useState<MouseEventInit>({});
 
   
 
-  const fetchMovieData = `http://www.omdbapi.com/?apikey=${KEY}&i=${"tt3896198"}`;
+//   const fetchMovieData = `http://www.omdbapi.com/?apikey=${KEY}&i=${"tt3896198"}`;
 
-  console.log(fetchMovieData);
+//   console.log(fetchMovieData);
   
-//   return (
-//     <div>
-//       {movies.length > 0 && (
-//         <ul>
-//           {movies.map((movie: MovieDteailsTypes) => (
-//             <li key={movie.imdbID}>{movie.Title}</li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
+// //   return (
+// //     <div>
+// //       {movies.length > 0 && (
+// //         <ul>
+// //           {movies.map((movie: MovieDteailsTypes) => (
+// //             <li key={movie.imdbID}>{movie.Title}</li>
+// //           ))}
+// //         </ul>
+// //       )}
+// //     </div>
+// //   );
   
 };
 
