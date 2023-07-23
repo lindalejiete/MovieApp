@@ -4,7 +4,7 @@ import "./MovieDetails.css";
 
 // const KEY = "eade25bf";
 
-// const MovieDetails = ({ selectedId }: MovieDetailsTypes) => {
+const MovieDetails = () => {
 //   const [movies, setMovies] = useState<MouseEventInit>({});
 
   
