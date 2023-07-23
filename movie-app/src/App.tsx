@@ -3,9 +3,10 @@ import './App.css';
 import MovieDetails from './components/movieDetails/MovieDetails';
 
 function App() {
+  
   return (
     <div>
-      <MovieDetails/>
+      <MovieDetails />
     </div>
   );
 }

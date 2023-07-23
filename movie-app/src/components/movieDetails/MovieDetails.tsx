@@ -1,19 +1,30 @@
-import './MovieDetails.css'
+import "./MovieDetails.css";
+import React, { useState } from "react";
 
-const MovieDetails = () => {
-    return (
-        <div className="movie-details-box">
-            <div>
-            <h1>Title</h1>
-            <button>play</button>
-            <h2>+</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nam ad laboriosam, quisquam voluptatibus ex incidunt aspernatur dolorum at in? Eum error alias voluptatibus odio obcaecati ab quasi fugit provident.
-                changed
-            </p>
-            </div>
-        </div>
-    )
-}
 
-export default MovieDetails
+const KEY = "eade25bf";
+
+const MovieDetails = ({ selectedId }: MovieDetailsTypes) => {
+  const [movies, setMovies] = useState<MouseEventInit>({});
+
+  
+
+  const fetchMovieData = `http://www.omdbapi.com/?apikey=${KEY}&i=${"tt3896198"}`;
+
+  console.log(fetchMovieData);
+  
+//   return (
+//     <div>
+//       {movies.length > 0 && (
+//         <ul>
+//           {movies.map((movie: MovieDteailsTypes) => (
+//             <li key={movie.imdbID}>{movie.Title}</li>
+//           ))}
+//         </ul>
+//       )}
+//     </div>
+//   );
+  
+};
+
+export default MovieDetails;
