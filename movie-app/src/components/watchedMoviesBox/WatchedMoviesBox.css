@@ -1,6 +1,7 @@
 .WatchedMoviesBox {
   position: relative;
   width: 30vw;
+  overflow: scroll;
   /* padding: 2.4rem; */
   /* display: flex;
   flex-direction: column;
