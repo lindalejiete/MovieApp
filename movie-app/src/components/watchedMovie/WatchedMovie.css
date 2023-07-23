@@ -1,0 +1,18 @@
+.WatchedMovieBtnDelete {
+  position: absolute;
+  right: 2.4rem;
+  height: 1.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  background-color: #fa5252;
+  color: #2b3035;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.WatchedMovieBtnDelete:hover {
+  background-color: #e03131;
+}
