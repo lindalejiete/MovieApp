@@ -1,3 +1,4 @@
+import React from 'react'
 import "./Homepage.css";
 import Header from "../../components/header/Header";
 import HomepageContent from "../../components/homepageContent/HomepageContent";

@@ -10,7 +10,6 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import MovieDetails from "../movieDetails/MovieDetails";
 import {tempMovieData} from "../../data/data";
 import {WatchedMoviesList, HomePageTypes} from "../../types/types";
-import "./HomepageContent.css";
 
 const KEY = "9f8ff0fc";
 

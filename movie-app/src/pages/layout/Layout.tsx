@@ -1,3 +1,4 @@
+import React from 'react'
 import "./Layout.css";
 import {BoxProps} from "../../types/types";
 
