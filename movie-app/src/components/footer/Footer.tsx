@@ -1,7 +1,10 @@
 import React from 'react'
 import './Footer.css'
+// @ts-ignore
 import FBLogo from '../../assets/FB_logo.svg'
+// @ts-ignore
 import IGLogo from '../../assets/IG_logo.svg'
+// @ts-ignore
 import YTLogo from '../../assets/YT_logo.svg'
 
 const Footer = () => {
