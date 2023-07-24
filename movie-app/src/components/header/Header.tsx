@@ -2,15 +2,18 @@ import "./Header.css";
 import {HeaderComponentTypes} from "../../types/types";
 // @ts-ignore
 import Logo from "../../assets/logo.png";
+import {useState} from "react";
 
 const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
+  const [isMobile, setIsMobile] = useState(false);
+
   return (
     <div className="Header" id="home">
       <div className="HeaderWrapper">
         <div className="HeaderLogo">
           <img src={Logo} alt="logo"></img>
         </div>
-        <div className="HeaderLeft">
+        <div className={`${isMobile ? "MobileHeader" : "HeaderLeft"}`}>
           <ul>
             <li>
               <a
@@ -42,7 +45,10 @@ const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
             </li>
           </ul>
         </div>
-        <button className="HeaderBtnMobileNav">
+        <button
+          className="HeaderBtnMobileNav"
+          onClick={() => setIsMobile((isMobile) => !isMobile)}
+        >
           <div></div>
           <div></div>
           <div></div>
