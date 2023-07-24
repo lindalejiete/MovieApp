@@ -53,4 +53,5 @@ export type WatchedMovieBoxComponentTypes = {
 };
 export type WatchedMovieSummaryComponentTypes = {
   watched: WatchedMoviesList[];
+  isMobile: boolean;
 };

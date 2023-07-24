@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "./Homepage.css";
 import Header from "../../components/header/Header";
 import HomepageContent from "../../components/homepageContent/HomepageContent";
@@ -19,7 +19,7 @@ const Homepage = () => {
   }
 
   return (
-    <>
+    <div className="Homepage">
       <Header onSearch={handleSearch} movies={movies} />
       <HomepageContent
         query={query}
@@ -27,7 +27,7 @@ const Homepage = () => {
         movies={movies}
       />
       <Footer />
-    </>
+    </div>
   );
 };
 

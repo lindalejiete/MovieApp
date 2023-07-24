@@ -62,47 +62,47 @@ const MovieDetails = ({
   );
 
   return (
-      <div className="MovieDetails">
-        <button className="MovieDetailsBtnBack" onClick={onCloseMovie}>
-          &larr;
-        </button>
-        {isLoading && <Loader />}
-        {error && <ErrorMessage message={error} />}
-  
-        {!isLoading && !error && (
-          <div className="movie-details-box">
-            <div>
-              <img src={movie.Poster} alt={`${movie.Title} poster`}></img>
-              <h2>{movie.Title}</h2>
-              <p>
-                {movie.Released} &bull; {movie.Runtime}{" "}
+    <div className="MovieDetails" id="movies">
+      <button className="MovieDetailsBtnBack" onClick={onCloseMovie}>
+        &larr;
+      </button>
+      {isLoading && <Loader />}
+      {error && <ErrorMessage message={error} />}
+
+      {!isLoading && !error && (
+        <div className="movie-details-box">
+          <div>
+            <img src={movie.Poster} alt={`${movie.Title} poster`}></img>
+            <h2>{movie.Title}</h2>
+            <p>
+              {movie.Released} &bull; {movie.Runtime}{" "}
+            </p>
+            <p>{movie.Genre}</p>
+            <p>
+              <span>⭐</span>
+              {movie.imdbRating} IMDB StarRating
+            </p>
+            {!isWatched ? (
+              <>
+                <button className="MovieDetailsBtnAdd" onClick={handleAdd}>
+                  Add to list
+                </button>
+              </>
+            ) : (
+              <p className="MovieDetailsNotification">
+                You have this movie on your list
               </p>
-              <p>{movie.Genre}</p>
-              <p>
-                <span>⭐</span>
-                {movie.imdbRating} IMDB StarRating
-              </p>
-              {!isWatched ? (
-                <>
-                  <button className="MovieDetailsBtnAdd" onClick={handleAdd}>
-                    Add to list
-                  </button>
-                </>
-              ) : (
-                <p className="MovieDetailsNotification">
-                  You have this movie on your list
-                </p>
-              )}
-              <p>
-                <em>{movie.Plot}</em>
-              </p>
-              <p>Starring {movie.Actors}</p>
-              <p>Directed by {movie.Director}</p>
-            </div>
+            )}
+            <p>
+              <em>{movie.Plot}</em>
+            </p>
+            <p>Starring {movie.Actors}</p>
+            <p>Directed by {movie.Director}</p>
           </div>
-        )}
-      </div>
-    );
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default MovieDetails;
