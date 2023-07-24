@@ -5,7 +5,7 @@
   position: relative;
   overflow-x: hidden;
 }
-::-webkit-scrollbar {
+.MoviesListBoxContainer::-webkit-scrollbar {
   width: 10px;
 }
 .MoviesListBoxBtnToggle {

@@ -2,6 +2,11 @@
   position: relative;
   width: 25vw;
   overflow: auto;
+  overflow-x: hidden;
+}
+
+.WatchedMoviesBox::-webkit-scrollbar {
+  width: 10px;
 }
 
 .WatchedBoxBtnToggle {
@@ -50,7 +55,8 @@
 
 @media screen and (max-width: 660px) {
   .WatchedMoviesBox {
-    height: 100rem;
-    overflow: auto;
+    height: 200rem;
+    width: 100vw;
+    overflow: scroll;
   }
 }

@@ -3,6 +3,7 @@
   border-radius: 0.9rem;
   background-color: var(--color-background-100);
   box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
 }
 
 .WatchedMoviesSummary h2 {
@@ -28,5 +29,14 @@
 @media screen and (max-width: 1394px) {
   .WatchedMoviesSummary div {
     font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .WatchedMoviesSummary h2 {
+    text-align: center;
+  }
+  .WatchedMoviesSummary div {
+    justify-content: center;
   }
 }
