@@ -1,0 +1,51 @@
+.MovieComponentList {
+  list-style: none;
+  padding: 0.8rem 0;
+}
+
+.MovieComponentList li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 2.4rem;
+  font-size: 1.6rem;
+  align-items: center;
+  padding: 1.6rem 3.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.MovieComponentList li:hover {
+  background-color: #343a40;
+}
+
+.MovieComponentList img {
+  width: 100%;
+  grid-row: 1 / -1;
+}
+
+.MovieComponentList h3 {
+  font-size: 1.8rem;
+}
+
+.MovieComponentList div {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.MovieComponentList p {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+@media screen and (max-width: 1394px) {
+  .MovieComponentList li {
+    font-size: 1.4rem;
+  }
+  .MovieComponentList h3 {
+    font-size: 1.6rem;
+  }
+}
