@@ -1,5 +1,5 @@
 import React from "react";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import "./HomepageContent.css";
 import WatchedMoviesBox from "../watchedMoviesBox/WatchedMoviesBox";
 import MoviesListBox from "../moviesListBox/MoviesListBox";
@@ -8,13 +8,13 @@ import MoviesList from "../moviesList/MoviesList";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import MovieDetails from "../movieDetails/MovieDetails";
-import {tempMovieData} from "../../data/data";
-import {WatchedMoviesList, HomePageTypes} from "../../types/types";
+import { tempMovieData } from "../../data/data";
+import { WatchedMoviesList, HomePageTypes } from "../../types/types";
 import "./HomepageContent.css";
 
 const KEY = "9f8ff0fc";
 
-const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
+const HomepageContent = ({ query, movies, onSearchMovie }: HomePageTypes) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState<null | string>(null);
@@ -50,12 +50,13 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
       const controller = new AbortController();
       async function fetchMovies() {
         try {
+          // Maybe extract this try & catch block to a custom hook or a separate function
           setIsLoading(true);
           setError("");
 
           const res = await fetch(
             `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-            {signal: controller.signal}
+            { signal: controller.signal }
           );
 
           if (!res.ok)
@@ -74,7 +75,7 @@ const HomepageContent = ({query, movies, onSearchMovie}: HomePageTypes) => {
           setIsLoading(false);
         }
       }
-      if (query.length === 0) {
+      if (query?.length === 0) {
         onSearchMovie(tempMovieData);
         setError("");
         return;

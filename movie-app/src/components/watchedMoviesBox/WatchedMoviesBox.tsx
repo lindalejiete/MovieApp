@@ -1,8 +1,8 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import WatchedMoviesList from "../watchedMoviesList/WatchedMoviesList";
 import "./WatchedMoviesBox.css";
 import WatchedMoviesSummary from "../watchedMoviesSummary/WatchedMoviesSummary";
-import {WatchedMovieBoxComponentTypes} from "../../types/types";
+import { WatchedMovieBoxComponentTypes } from "../../types/types";
 
 const WatchedMoviesBox = ({
   watched,
@@ -12,11 +12,11 @@ const WatchedMoviesBox = ({
   const [isMobile, setIsMobile] = useState(false);
 
   const [width, setWidth] = useState(0);
-
+  const mobileWidth = 660;
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
-      if (window.innerWidth < 660) {
+      if (window.innerWidth < mobileWidth) {
         setIsOpen1(false);
         setIsMobile(true);
       } else {

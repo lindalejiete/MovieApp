@@ -5,9 +5,9 @@ import {
 } from "../../types/types";
 
 const getAverage = (arr: number[]) => {
-  return arr.reduce(
+  return arr?.reduce(
     (acc: number, cur: number, i: number, arr: number[]) =>
-      acc + cur / arr.length,
+      acc + cur / arr?.length,
     0
   );
 };
@@ -17,12 +17,12 @@ const WatchedMoviesSummary = ({
   isMobile,
 }: WatchedMovieSummaryComponentTypes) => {
   const avgImdbRating = getAverage(
-    watched.map((movie: WatchedMoviesList) => Number(movie.imdbRating))
-  ).toFixed(1);
+    watched?.map((movie: WatchedMoviesList) => Number(movie.imdbRating))
+  )?.toFixed(1);
 
   const avgRuntime = getAverage(
-    watched.map((movie: WatchedMoviesList) => movie.Runtime)
-  ).toFixed(0);
+    watched?.map((movie: WatchedMoviesList) => movie.Runtime)
+  )?.toFixed(0);
 
   return (
     <div className="WatchedMoviesSummary">
@@ -30,7 +30,7 @@ const WatchedMoviesSummary = ({
       <div>
         <p>
           <span>#️⃣</span>
-          <span>{watched.length} movies</span>
+          <span>{watched?.length} movies</span>
         </p>
         <p>
           <span>⭐️</span>

@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import "./Layout.css";
-import {BoxProps} from "../../types/types";
+import { BoxProps } from "../../types/types";
 
-const Layout = (props: BoxProps) => {
+const Layout = ({ children }: BoxProps) => {
   return (
     <div className="Layout">
       <div className="LayoutDim"></div>
-      {props.children}
+      {children}
     </div>
   );
 };
