@@ -1,11 +1,11 @@
 import "./Header.css";
-import {HeaderComponentTypes} from "../../types/types";
+import { HeaderComponentTypes } from "../../types/types";
 // @ts-ignore
 import Logo from "../../assets/logo.png";
-import {useState} from "react";
+import { useState } from "react";
 
-const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
-  const [isMobile, setIsMobile] = useState(false);
+const Header = ({ onSearch, query, movies }: HeaderComponentTypes) => {
+  const [isMobile, setIsMobile] = useState(false); // This code is not working properly and does not make much sense :)
 
   return (
     <div className="Header" id="home">
@@ -19,7 +19,7 @@ const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
               <a
                 href="#home"
                 onClick={() => {
-                  window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                 }}
               >
                 Home
@@ -41,7 +41,7 @@ const Header = ({onSearch, query, movies}: HeaderComponentTypes) => {
               ></input>
             </li>
             <li className="num-results">
-              Found <strong>{movies.length}</strong> results
+              Found <strong>{movies?.length}</strong> results
             </li>
           </ul>
         </div>

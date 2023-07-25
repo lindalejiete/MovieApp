@@ -1,8 +1,11 @@
 import "./MovieDetails.css";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Loader from "../loader/Loader";
 import ErrorMessage from "../errorMessage/ErrorMessage";
-import {MovieDetailsComponentTypes, WatchedMoviesList} from "../../types/types";
+import {
+  MovieDetailsComponentTypes,
+  WatchedMoviesList,
+} from "../../types/types";
 
 const KEY = "9f8ff0fc";
 
@@ -17,7 +20,7 @@ const MovieDetails = ({
   const [error, setError] = useState("");
 
   const isWatched = watched
-    .map((movie: WatchedMoviesList) => movie.imdbID)
+    ?.map((movie: WatchedMoviesList) => movie.imdbID)
     .includes(selectedId);
 
   function handleAdd() {
@@ -36,6 +39,7 @@ const MovieDetails = ({
   useEffect(
     function () {
       async function getMovieDetails() {
+        // Can be extracted to a custom hook or a separate function
         try {
           setIsLoading(true);
           setError("");
